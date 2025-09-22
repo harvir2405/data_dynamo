@@ -2,13 +2,13 @@
 SELECT
 	COUNT(id)
 FROM
-	all_2509.team_where_ld_book_sales_records;
+	all_2509.team_where_2_book_sales_records_ib;
 
 -- query2
 SELECT
 	COUNT(DISTINCT id)
 FROM
-	all_2509.team_where_ld_book_sales_records;
+	all_2509.team_where_2_book_sales_records_ib;
 
 -- query3
 SELECT
@@ -16,12 +16,11 @@ SELECT
 FROM
 	information_schema.columns
 WHERE
-	table_name = 'team_where_ld_book_sales_records';
+	table_name = 'team_where_2_book_sales_records_ib';
 
 -- query4
 SELECT 
-	SUM(id
-	+ qtr
+	SUM(qtr
 	+ year
 	+ month
 	+ day_of_month
@@ -29,38 +28,37 @@ SELECT
 	+ quantity
 	+ item_price
 	+ shipping_price
-	+ ship_postal_code
 	+ total_amount
 	+ profit_percentage
 	+ profit_inr
 	+ cost_price)
 FROM
-	all_2509.team_where_ld_book_sales_records;
+	all_2509.team_where_2_book_sales_records_ib;
 
 -- query5
 SELECT 
-	SUM(id)
-	+ SUM(qtr)
-	+ SUM(year)
-	+ SUM(month)
-	+ SUM(day_of_month)
-	+ SUM(day)
-	+ SUM(quantity)
-	+ SUM(item_price)
-	+ SUM(shipping_price)
-	+ SUM(ship_postal_code)
-	+ SUM(total_amount)
-	+ SUM(profit_percentage)
-	+ SUM(profit_inr)
-	+ SUM(cost_price)
+	ROUND(SUM(qtr) :: NUMERIC
+	+ SUM(year) :: NUMERIC
+	+ SUM(month) :: NUMERIC
+	+ SUM(day_of_month) :: NUMERIC
+	+ SUM(day) :: NUMERIC
+	+ SUM(quantity) :: NUMERIC
+	+ SUM(item_price) :: NUMERIC
+	+ SUM(shipping_price) :: NUMERIC
+	+ SUM(total_amount) :: NUMERIC
+	+ SUM(profit_percentage) :: NUMERIC
+	+ SUM(profit_inr) :: NUMERIC
+	+ SUM(cost_price) :: NUMERIC, 2) 
 FROM
-	all_2509.team_where_ld_book_sales_records;
+	all_2509.team_where_2_book_sales_records_ib;
 
 -- query6
 SELECT
-	team_where_ld_book_sales_records.Date
+	date
 FROM
-	all_2509.team_where_ld_book_sales_records
+	all_2509.team_where_2_book_sales_records_ib
+ORDER BY
+	random()
 LIMIT
 	5;
 
@@ -68,7 +66,7 @@ LIMIT
 SELECT
 	*
 FROM
-	all_2509.team_where_ld_book_sales_records
+	all_2509.team_where_2_book_sales_records_ib
 ORDER BY
 	RANDOM()
 LIMIT
