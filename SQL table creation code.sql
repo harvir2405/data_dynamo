@@ -55,5 +55,8 @@ DROP COLUMN profit_percentage;
 ALTER TABLE all_2509.team_where_2_book_sales_records_ib
 RENAME COLUMN "profit_percentage (%)" TO profit_percentage;
 ALTER TABLE all_2509.team_where_2_book_sales_records_ib
-RENAME COLUMN "online_sale_offers " TO online_sale_offers
+RENAME COLUMN "online_sale_offers " TO online_sale_offers;
+ALTER TABLE all_2509.team_where_2_book_sales_records_ib 
+RENAME COLUMN "author " TO author;
+
 
